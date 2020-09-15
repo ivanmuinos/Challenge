@@ -1,0 +1,44 @@
+@import '../../utils/sass//colors.scss';
+
+.weather__container {
+  border: 1px solid $gray;
+  padding: 2rem;
+
+  .title__weather {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+  }
+
+  .date__weather {
+    font-size: 20px;
+    font-weight: bold;
+    color: $santander-red;
+  }
+
+  .body__weather {
+    display: flex;
+    justify-content: center;
+
+    .temp__weather {
+      position: relative;
+      margin: 1rem;
+
+      .min__temp {
+        position: absolute;
+        bottom: 0;
+        font-weight: bold;
+        font-size: 20px;
+        color: gray;
+      }
+
+      .max__temp {
+        position: absolute;
+        top: 0;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+}
+

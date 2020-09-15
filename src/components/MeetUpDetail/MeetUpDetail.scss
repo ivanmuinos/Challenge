@@ -1,0 +1,36 @@
+@import "../../utils/sass/devices";
+@import "../../utils/sass/colors.scss";
+
+.container_meetup {
+  margin: 2rem;
+
+  .description__meetup {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .container__meetupdetail {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+
+    .detail__meetup {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      padding: 2rem;
+      height: 15rem;
+      border: 1px solid $gray;
+      background: white;
+      .text__meetup {
+        margin: 1rem 0rem;
+      }
+    }
+
+    .people__meetup_detail{
+      width: 20rem;
+      margin: 0 1rem;
+      border: 1px solid $gray;
+    }
+  }
+}

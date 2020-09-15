@@ -1,0 +1,23 @@
+@import '../../utils/sass/devices'; 
+@import '../../utils//sass//colors.scss';
+
+.container__birras {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  align-items: center;
+  .img__birras {
+    height: 150px;
+    width: 150px;
+  }
+
+  .box__birras {
+    font-size: 20px;
+    font-weight: bold;
+    color: $santander-red;
+  }
+
+  .text_birras {
+    font-size: 18px;
+  }
+}

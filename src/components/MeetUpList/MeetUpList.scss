@@ -1,0 +1,47 @@
+@import '../../utils/sass/devices'; 
+@import '../../utils//sass//colors.scss';
+
+h1 {
+  text-align: left;
+  margin: 1rem;
+}
+
+.button__meetup {
+  background: $santander-red;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 15rem;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background: brown;
+    transition: 0.5s ease;
+  }
+}
+.meetup__container { 
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+
+
+  .container__card {
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem;
+    height: 4rem;
+
+  }
+}
+
+@media (min-width: $tablet) {
+  .meetup__container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: $desktop) {
+  .meetup__container { grid-template-columns: repeat(3, 1fr); }
+}
+
