@@ -2,16 +2,17 @@
 @import "../../utils/sass/colors.scss";
 
 .container_meetup {
-  margin: 2rem;
+  margin:2rem;
 
   .description__meetup {
     font-size: 22px;
     font-weight: bold;
   }
   .container__meetupdetail {
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-gap: 1.5rem;
 
     .detail__meetup {
       display: flex;
@@ -28,9 +29,16 @@
     }
 
     .people__meetup_detail{
-      width: 20rem;
       margin: 0 1rem;
       border: 1px solid $gray;
     }
   }
+}
+
+@media (min-width: $tablet) {
+  .container__meetupdetail { grid-template-columns: repeat(1, 1fr); }
+}
+
+@media (min-width: $desktop) {
+  .container__meetupdetail { grid-template-columns: repeat(3, 1fr); }
 }

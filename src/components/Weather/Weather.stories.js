@@ -1,9 +1,14 @@
 import React from 'react'
 import Weather from './Weather'
+import moment from 'moment'
 
 export default {
   title: 'Weather',
   component: 'WeatherComponent'
+}
+
+const handleTemperature = temp => {
+  console.log("Test")
 }
 
 export const WeatherExample_1 = () => 
@@ -11,7 +16,8 @@ export const WeatherExample_1 = () =>
   api_key='1d5637f26b4944878df5bbe996f1efd7'
   country='AR'
   city='Buenos%20Aires,07'
-  date={'2020-09-13'}
+  date={moment().format('YYYY-MM-DD')}
+  temperature={handleTemperature}
 />
 
 export const WeatherExample_2 = () => 
@@ -19,7 +25,8 @@ export const WeatherExample_2 = () =>
   api_key='1d5637f26b4944878df5bbe996f1efd7'
   country='AR'
   city='Buenos%20Aires,07'
-  date={'2020-09-14'}
+  date={moment().add(1,'DAYS').format('YYYY-MM-DD')}
+  temperature={handleTemperature}
 />
 
 export const WeatherExample_3 = () => 
@@ -27,14 +34,24 @@ export const WeatherExample_3 = () =>
   api_key='1d5637f26b4944878df5bbe996f1efd7'
   country='AR'
   city='Buenos%20Aires,07'
-  date={'2020-09-18'}
+  date={moment().add(2,'DAYS').format('YYYY-MM-DD')}
+  temperature={handleTemperature}
 />
-
 
 export const WeatherExample_4 = () => 
 <Weather 
   api_key='1d5637f26b4944878df5bbe996f1efd7'
   country='AR'
   city='Buenos%20Aires,07'
-  date={'2020-09-25'}
+  date={moment().add(5,'DAYS').format('YYYY-MM-DD')}
+  temperature={handleTemperature}
+/>
+
+export const WeatherExample_5 = () => 
+<Weather 
+  api_key='1d5637f26b4944878df5bbe996f1efd7'
+  country='AR'
+  city='Buenos%20Aires,07'
+  date={moment().add(10,'DAYS').format('YYYY-MM-DD')}
+  temperature={handleTemperature}
 />

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.scss';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import Fade from '@material-ui/core/Fade';
 import Input from '@material-ui/core/Input'
 
 function Login( props ) {
-  const { users, admin } = props;
+  const { users, admin, logged } = props;
 
   const classes = useStyles();
 
@@ -16,7 +16,7 @@ function Login( props ) {
 
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
-
+  const [error, setError] = useState(false)
   const handleOpen = () => {
     setOpen(true);
   };
@@ -26,7 +26,7 @@ function Login( props ) {
   };
    
   const handleLogin = () => {
-    users.map(user => {
+    users.map((user, i) => {
       if(user.username === username && user.password === password){
         
         localStorage.setItem('user', JSON.stringify(user))
@@ -35,7 +35,12 @@ function Login( props ) {
         })
         if(user.role === 'admin'){
           admin(true)
+        }else{
+          admin(false)
         }
+        logged(true)
+      }else{
+        setError(true)
       }
     })
   };
@@ -77,6 +82,15 @@ function Login( props ) {
               >
                 logeate!
               </button>
+              {error &&
+              <div className="login__error">
+                <span>Datos incorrectos!</span>
+                <span>Intentá con: </span>
+                <span>Usuario: Santander; Contraseña: admin</span>
+                <span>Usuario: Ivan; Contraseña: user</span>
+              </div>
+              }
+
             </div>
           </div>
         </Fade>
@@ -101,6 +115,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     admin: value => dispatch({ type: 'ADMIN', payload: { admin: value }}),
+    logged: value => dispatch({ type: 'LOGGED', payload: { logged: value }}),
   })
 }
 

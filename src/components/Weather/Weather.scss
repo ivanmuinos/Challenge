@@ -1,6 +1,15 @@
 @import '../../utils/sass//colors.scss';
+@import '../../utils/sass/devices'; 
+
+%temp {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 .weather__container {
+  display: flex;
+  flex-direction: column;
   border: 1px solid $gray;
   padding: 2rem;
 
@@ -25,20 +34,20 @@
       margin: 1rem;
 
       .min__temp {
-        position: absolute;
+        @extend %temp;
         bottom: 0;
-        font-weight: bold;
-        font-size: 20px;
         color: gray;
       }
 
       .max__temp {
-        position: absolute;
+        @extend %temp;
         top: 0;
-        font-weight: bold;
-        font-size: 20px;
       }
     }
   }
 }
 
+@media (max-width: $tablet) {
+  .weather__container { padding: 1rem }
+  
+}

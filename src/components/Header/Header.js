@@ -13,7 +13,7 @@ import './Header.scss'
 
 function Header( props ) {
 
-  const { admin } = props
+  const { admin, logged } = props
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [auth, setAuth] = useState()
@@ -30,6 +30,7 @@ function Header( props ) {
     localStorage.clear()
     setAuth(false)
     admin(false)
+    logged(false)
     handleClose()
   };
 
@@ -45,9 +46,11 @@ function Header( props ) {
       let parse_user = JSON.parse(user)
       if(parse_user.role === 'admin'){
         admin(true)
+      }else{
+        admin(false)
       }
     }
-  }, [])
+  }, [admin])
   
   return (
     <div className="header__container">
@@ -113,6 +116,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     admin: value => dispatch({ type: 'ADMIN', payload: { admin: value }}),
+    logged: value => dispatch({ type: 'LOGGED', payload: { logged: value }}),
   })
 }
 

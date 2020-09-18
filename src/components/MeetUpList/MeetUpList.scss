@@ -1,14 +1,15 @@
 @import '../../utils/sass/devices'; 
 @import '../../utils//sass//colors.scss';
 
-h1 {
-  text-align: left;
-  margin: 1rem;
+%display__column {
+  display: flex;
+  flex-direction: column;
 }
 
 .button__meetup {
   background: $santander-red;
   color: white;
+  border-radius: 2rem;
   padding: 1rem;
   margin-top: 2rem;
   width: 15rem;
@@ -17,7 +18,7 @@ h1 {
   cursor: pointer;
 
   &:hover {
-    background: brown;
+    background: linear-gradient(to right, rgba(236,0,0,1) 0%, rgba(241,111,92,1) 0%, rgba(246,41,12,1) 0%, rgba(240,0,96,1) 100%);
     transition: 0.5s ease;
   }
 }
@@ -25,16 +26,43 @@ h1 {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-gap: 1rem;
-
+  grid-gap: 1.5rem;
 
   .container__card {
-    background-color: dodgerblue;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 1rem;
-    height: 4rem;
-
+    height: 15rem;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 2px 2px #ececec;
+    
+    .card__header {
+      @extend %display__column;
+      .meetup__title {
+        font-weight: bold;
+        color: $santander-red;
+        font-size: 30px;
+        text-align: left;
+      }
+    }
+    
+    .card__body {
+      @extend %display__column;
+      margin-top: 1rem;
+      text-align: left;
+      
+      .card__text__body {
+        font-size: 16px;
+        margin: 0.5rem;
+      }
+    }
+    &:hover {
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+      transition: 2s ease;
+    }
   }
+
+
 }
 
 @media (min-width: $tablet) {
@@ -42,6 +70,6 @@ h1 {
 }
 
 @media (min-width: $desktop) {
-  .meetup__container { grid-template-columns: repeat(3, 1fr); }
+  .meetup__container { grid-template-columns: repeat(4, 1fr); }
 }
 

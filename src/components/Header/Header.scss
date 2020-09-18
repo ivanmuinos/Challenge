@@ -1,3 +1,6 @@
+@import '../../utils/sass/devices'; 
+@import '../../utils//sass//colors.scss';
+
 .header__container {
   display:flex;
   position: sticky;
@@ -8,8 +11,12 @@
   height: 4rem;
   border-bottom: 1px solid #f1f1f1;
   z-index: 2;
-
   img {
     transform: scale(0.3);
   }
+  
+   @media (max-width: $tablet) {
+     img { display: none}
+   }
 }
+

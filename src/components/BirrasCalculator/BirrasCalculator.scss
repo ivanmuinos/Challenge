@@ -6,6 +6,7 @@
   flex-direction: column;
   margin: 3rem;
   align-items: center;
+  
   .img__birras {
     height: 150px;
     width: 150px;
@@ -17,7 +18,7 @@
     color: $santander-red;
   }
 
-  .text_birras {
+  .text__birras {
     font-size: 18px;
   }
 }

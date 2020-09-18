@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import './Weather.scss'
+import Moment from 'react-moment'
 import useGetWeather from './hooks/useGetWeather'
+import PropTypes from 'prop-types'
 
 //Componente que consulta a la API weatherbit
-//Devuelve el pronostico del tiempo segun Pais, Ciudad y fecha específica.
+//Devuelve el pronostico del tiempo hasta 16 dias segun Pais, Ciudad y fecha específica.
 
 export default function Weather( props ) {
   const { date } = props
@@ -16,7 +18,8 @@ export default function Weather( props ) {
 
   useEffect(() => {
     handleTemperature(weather, date)
-  }, [weather])
+  }, [weather, handleTemperature, date])
+
   return (
     <div>
       {
@@ -24,7 +27,7 @@ export default function Weather( props ) {
           return (
             <div className="weather__container" key={i}>
               <span className="title__weather">Pronóstico para el día: </span>
-              <span className="date__weather">{item.valid_date}</span>
+              <span className="date__weather"><Moment format={"D MMM YYYY"}>{item.valid_date}</Moment></span>
               <div className="body__weather">
                 <div>
                   <img src={require(`../../images/weather-icons/${item.weather.icon}.png`)} alt={item.weather.description}/>
@@ -41,6 +44,12 @@ export default function Weather( props ) {
       }
     </div>
   )
+}
+
+Weather.propTypes = {
+  api_key: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+
 }
 
 

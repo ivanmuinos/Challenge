@@ -1,58 +1,32 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
+import { render } from '@testing-library/react'
+import Weather from './Weather'
+import moment from 'moment'
+
+import { configure, shallow, mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() });
 
 
-/* test("testeo del componente weather(render)", async () => {
-  render(<Weather user='Ivan' message='Hoy esta lloviendo'/>)
-})
+const handleTemperature = temp => {
+  console.log("test")
+ }
 
-test("testeo del componente weather (render user)", async () => {
-  render(<Weather user='Ivan' message='hoy esta lloviendo'/>)
-
-  const usuario = await screen.findByRole('heading')
-
-  screen.debug()
-  expect(usuario).toHaveTextContent('Ivan')
-
-})
-
-test("testeo del componente weather (find button)", async () => {
-  render(<Weather user='Ivan' message='hoy esta lloviendo'/>)
-
-  const button = await screen.findByRole('button')
-
-  screen.debug()
-
-  expect(button).toHaveTextContent('Mostrar clima')
-
-})
-
-test("testeo del componente weather (click button)", async () => {
-  render(<Weather user='Ivan' message='el clima es de 27 grados'/>)
-
-  fireEvent.click(screen.getByRole('button'))
-
-  screen.debug()
-
-  const message = await screen.findByText(/clima es de/)
-
-  expect(message).toHaveTextContent('el clima es de 27 grados')
-
-  fireEvent.click(screen.getByRole('button'))
-
-  const withoutmessage = await screen.findByText(/Sin mensaje/)
-
-  expect(withoutmessage).toHaveTextContent('Sin mensaje')
+describe('Test case of Weather', () => {
+  test('test if render ok', () => {
 
 
-})
-
-
-test('Weather component render', async() => {
-  const { findAllByRole } = render(<Weather user='Ivan' message='hoy esta lloviendo'/>)
-
-  const weatherComponent = await findAllByRole('heading')
+    const wrapper = shallow(
+      <Weather 
+        api_key='1d5637f26b4944878df5bbe996f1efd7'
+        country='AR'
+        city='Buenos%20Aires,07'
+        date={'2020-09-18'}
+        temperature={handleTemperature}
+      />
+    )
+  })
 
   
-}) */
+})
