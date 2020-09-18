@@ -1,68 +1,84 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Correr el proyecto.
 
-In the project directory, you can run:
+En la raiz del proyecto correr:
 
-### `yarn start`
+### `npm install`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Instala todas las dependencias necesarias para correr el proyecto.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `npm start`
+Corre la aplicación en modo desarrollo.<br />
+Abrir [http://localhost:3000](http://localhost:3000) para verla en el navegador.
 
-### `yarn test`
+### `npm run test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Corre todos los test de prueba
 
-### `yarn build`
+### `npm run storybook`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Corre los test UI<br />
+Abrir [http://localhost:6006](http://localhost:6006) para verlos en el navegador.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Informacion de la app`
 
-### `yarn eject`
+## Tecnologías/Frameworks/Librerias utilizad@s:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React.js con hooks.
+- Redux: https://redux.js.org/
+  Lo utilicé para persitir algunos datos ya que es solo front-end.
+  En caso de que en algun momento se integre con backend se puede utilizar para cachear datos que se usen durante la sesión y así evitar el rellamado a APIS. 
+  Hace muy escalable la aplicación, ya que en apps que son demasiados complejas aveces sin Redux se complica el manejo de estados y datos de los componentes.
+- Sass: https://sass-lang.com/.
+- LocalStorage: lo utilice para el manejo de sesion de usuarios. Login y logout. 
+- React Router: https://reactrouter.com/.
+- React Moment: libreria para el manejo de fechas y horas. https://www.npmjs.com/package/react-moment.
+- Material UI: para algunos componentes como inputs, datepicker, etc. https://material-ui.com/.
+- FontAwesome: para algunos iconos. https://fontawesome.com/how-to-use/on-the-web/using-with/react
+- Tests: utilicé Jest y Enzyme. https://jestjs.io/en/, https://enzymejs.github.io/enzyme/.
+- TestUI: storybook. Utilidad muy poderosa para probar diferentes comportamientos en relacion al front end de componentes separados. mas info: https://storybook.js.org/.
+- Para la api de clima utilicé la recomendada: https://www.weatherbit.io/api.
+- Axios para realizar peticiones http. https://www.npmjs.com/package/react-axios.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Uso de la aplicación`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Inicio Sesión
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Administrador
+Usuario: Santander
+Contraseña: admin
 
-## Learn More
+- Usuario
+Usuario: Ivan
+Contraseña: user
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `Historias de usuario desarrolladas`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Como admin quiero saber cuantas cajas de birra tengo que comprar para poder aprovisionar la meetup.
+Me logeo como administrador y en la pantalla home me va a aparecer un botón "Crear MeetUp". Una vez dentro puedo elegir la fecha y la cantidad de invitados. A su vez me va a mostrar el pronóstico del tiempo de la fecha elegida y cuantos cajones de birra voy a necesitar.
 
-### Code Splitting
+## Como admin y usuario quiero conocer la temperatura de la meetup para saber si va a hacer calor o no.
+Me logeo tanto como admin o como usuario y en la pantalla principal voy a ver el listado de los próximos eventos. Selecciono alguno y vamos a poder ver el pronóstico del tiempo actualizado.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Como admin quiero armar una meetup para poder invitar a otras personas.
+No puedo armar la meetup ya que consideré que debía integrarse con el backend, pero como muestra está mockeado el botón. 
+Tambien esta mockeada la parte de invitar otras personas. Se pueden agregar a la lista. No hay ningun tipo de validación de repetidos ya que es para mostrar como se van añadiendo varios usuarios.
 
-### Analyzing the Bundle Size
+## Como usuario quiero inscribirme a meetups para poder asistir.
+Si me logeo con el usuario Ivan me puedo inscribir en una meetup pero no puedo agregar gente ya que solo lo puede hacer el administrador.
+Igualmente considero que es necesario un backend con JWT por ejemplo para mantener en un token toda la información del usuario y poder recuperarla y navegar por las pantallas.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+### `Esquema de CI/CD`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Adjunto esquema de CI/CD en una imagen llamada: devops.jpg.
 
-### Advanced Configuration
+### `Informacion personal`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## github: https://github.com/ivanmuinos/
+## linkedin: https://www.linkedin.com/in/ivan-david-m-63015387/
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Muchas gracias por la oportunidad :)
